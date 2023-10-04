@@ -4,8 +4,8 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
-group = 'com.hadine'
-version = '0.0.1-SNAPSHOT'
+group = 'com.siggy'
+version = '0.0.6'
 
 java {
 	sourceCompatibility = '11'
