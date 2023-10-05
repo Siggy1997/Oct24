@@ -13,12 +13,14 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 //2023-09-15
 @CrossOrigin
 @RestController
+@RequestMapping("/api")
 public class BoardController {
 
 	@Autowired
@@ -133,8 +135,8 @@ public class BoardController {
 	public String commentDetail(@RequestParam(required = true) int cno) {
 		Map<String, Object> detail = boardService.commentdetail(cno);
 		JSONObject json = new JSONObject(detail);
-		//json.put("detail", detail);
-		//System.out.println(json.toString());
+		json.put("detail", detail);
+		System.out.println(json.toString());
 		return json.toString();
 	}
 
