@@ -35,4 +35,6 @@ public interface BoardDAO {
 
 	public int commentUpdate(Map<String, Object> map);
 
+	public List<Map<String, Object>> index_cmtTop5();
+
 }

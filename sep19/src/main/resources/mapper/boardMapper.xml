@@ -9,7 +9,7 @@
 	</select>
 
 	<select id="boardDetail" parameterType="Integer" resultType="Map">
-		SELECT bno, btitle, m_name, bdate, blike, bcontent, commentcount 
+		SELECT bno, btitle, m_name, bdate, blike, bcontent, commentcount, m_id
 		from boardview
 		WHERE bno=#{bno}
 	</select>
@@ -68,4 +68,8 @@
 		UPDATE comments SET c_comment=#{comment}, c_ip=#{cip}
 		WHERE c_no=#{cno}
 	</update>
+	
+	<select id="index_cmtTop5">
+		SELECT * FROM boardview ORDER BY commentcount DESC LIMIT 5
+	</select>
 </mapper>

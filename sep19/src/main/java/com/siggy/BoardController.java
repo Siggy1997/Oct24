@@ -3,6 +3,9 @@ package com.siggy;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,10 +90,15 @@ public class BoardController {
 	}
 
 	@PostMapping("/login")
-	public String login(@RequestBody Map<String, Object> map) {
+	public String login(@RequestBody Map<String, Object> map, HttpServletRequest request) {
 		System.out.println(map);
-		Map<String, Object> detail = boardService.login(map);
-		JSONObject json = new JSONObject(detail);
+		Map<String, Object> login = boardService.login(map);
+		if (login.get("count").equals("1")) {
+			HttpSession session = request.getSession();
+			session.setAttribute("m_name", login.get("m_name"));
+			session.setAttribute("m_id", map.get("userId"));
+		}
+		JSONObject json = new JSONObject(login);
 		// json.put("result", result);
 		System.out.println(json.toString());
 		return json.toString();
@@ -107,6 +115,11 @@ public class BoardController {
 		List<Map<String, Object>> index_members = boardService.index_members();
 		JSONArray members = new JSONArray(index_members);
 		json.put("members", members);
+		//댓글많은순
+		List<Map<String, Object>> index_cmtTop5 = boardService.index_cmtTop5();
+		JSONArray cmtTop5 = new JSONArray(index_cmtTop5);
+		json.put("cmtTop5", cmtTop5);
+		
 		return json.toString();
 	}
 
