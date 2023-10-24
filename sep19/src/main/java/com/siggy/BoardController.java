@@ -58,7 +58,7 @@ public class BoardController {
 		return json.toString();
 	}
 
-	@PostMapping("/write")
+	@PostMapping("/write") 
 	public String write(@RequestBody Map<String, Object> map) {
 		//System.out.println(map);
 		int result = boardService.write(map);
