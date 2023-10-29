@@ -20,7 +20,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 @Component
 public class AdimUtil {
-	// 문자열이 들어오면 숫자로 변경하기
+	// 문자열이 들어오면 숫자로 변경하기기
 	public int strToInt(String str) {
 		// 숫자로 바꿀 수 있는 경우 숫자로, 만약 숫자로 못 바꾼다면?
 		// "156" -> 156 "156번" -> 156

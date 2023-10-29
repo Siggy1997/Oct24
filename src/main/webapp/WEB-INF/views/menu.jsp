@@ -7,7 +7,7 @@
 <link rel="stylesheet"
 	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <link rel="icon" href="./img/dream_favicon.ico" type="image/x-icon">
-<script src="./js/jquery-3.7.0.min.js"></script>
+<script src="./js/jquery-3.7.0.min.js"></script> 
 <script type="text/javascript">
 
 	$(function(){
